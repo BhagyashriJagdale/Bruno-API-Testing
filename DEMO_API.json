@@ -1,0 +1,66 @@
+{
+  "name": "DEMO_API",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "USD Rates",
+      "seq": 2,
+      "request": {
+        "url": "https://open.er-api.com/v6/latest/USD",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Accept",
+            "value": "application/json",
+            "enabled": true
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "auth": {
+          "mode": "none",
+          "basic": {
+            "username": "",
+            "password": ""
+          },
+          "bearer": {
+            "token": ""
+          }
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [
+          {
+            "name": "res.body.result",
+            "value": "eq success",
+            "enabled": true,
+            "uid": "EhaGsNLPrn2QJ6uCWkCGF"
+          },
+          {
+            "name": "res.status",
+            "value": "eq 200",
+            "enabled": true,
+            "uid": "kNaq9QwLOVOXavJRrxFJA"
+          }
+        ],
+        "tests": "var data = res.getBody();\n\ntest(\"Verify status code is 200 and status is success\", function() {\n  expect(res.getStatus()).to.equal(200);    \n  expect(data.result).to.contains('success'); \n});\n\nif(res.status == 200 && data.result == \"success\"){\n  test(\"Get AED value and verify\", function() {\n        var aedRate = data.rates.AED;\n        if(3.6 < aedRate < 3.7)  \n           return true\n           console.log(\"aedRate is in between 3.6 and 3.7\");\n  \n  });\n  \n}\n\n\n\n",
+        "query": []
+      }
+    },
+    {
+      "type": "json",
+      "name": "bruno",
+      "seq": 1
+    }
+  ],
+  "environments": []
+}
