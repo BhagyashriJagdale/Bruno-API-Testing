@@ -39,4 +39,4 @@ jobs:
        # Runs the Bruno API request
       - name: Run brunos all API request
         run: |
-          bru run --env QA --output result
+          bru run --output result
