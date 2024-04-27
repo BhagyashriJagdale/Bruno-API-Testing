@@ -6,6 +6,8 @@ In this project, I am trying to replicate [APITest-Demo](https://github.com/Bhag
 2. Verified where status as Success.
 3. Stored rate.aed value.
 4. Verified stored rate.aed value is between 3.6 to 3.7.
+5. Verified rates have 162 counts.
+6. Verifying JSON schema is matches with API response schema
 
 ## Blog Link
 [Bruno-the-open-source-gui-tool-for-efficient-api-testing](https://medium.com/@jagdalebr/bruno-the-open-source-gui-tool-for-efficient-api-testing-1c15ad113b67)
